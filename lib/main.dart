@@ -1,5 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+
+import 'Components.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,140 +46,34 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
         ),
-      body: Column(
-        children: <Widget>[
-          new Container(
-            color: Color.fromRGBO(35, 47, 62, 1),
-            child: new Container(
-              width: double.infinity,
-              height: 50,
-              decoration: new BoxDecoration(
-                color: Colors.white,
-                border: new Border.all(color: Colors.black, width: 1.0),
-                borderRadius: new BorderRadius.all(const Radius.circular(5.0)),
-              ),
-              child: new Row(
-               children: <Widget>[
-                 new IconButton(
-                     icon: Icon(
-                       Icons.search,
-                       color: Colors.grey,
-                     ),
-                     onPressed: () {},
-                 ),
-                 new Text(
-                   'Search',
-                   style: TextStyle(
-                     color: Colors.grey,
-                   ),
-                 ),
-                 new Expanded(child: Container()),
-                 new Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 2.0),
-                        child: Text('|'),
-                      ),
-                  ),
-                 new Align(
-                   alignment: Alignment.centerRight,
-                   child: Padding(
-                     padding: const EdgeInsets.only(right: 2.0),
-                     child: IconButton(
-                        icon: Icon(
-                          Icons.camera_enhance,
-                          color: Colors.grey,
-                        ),
-                       onPressed: () {},
-                     ),
-                   ),
-                 )
-               ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            new SearchBar(),
+            new TopBar(),
+            new DeliveryBar(),
+            new AdCarousel(),
+            new Container(
+              color: Colors.grey,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 2.0, bottom: 2.0),
+                child: new SizedBox(
+                  height: 150,
+                  width: double.infinity,
+                  child: Image.asset('assets/Ad.jpg', fit: BoxFit.cover,),
+                ),
               ),
             ),
-          ),
-          new Container(
-            width: double.infinity,
-            height: 50,
-            color: Color.fromRGBO(35, 47, 62, 1),
-            child: new Row(
-              children: <Widget>[
-                new Expanded(child: Container()),
-                new FlatButton(
-                    onPressed: () {},
-                    textColor: Colors.white,
-                    child: Text('Prime')
-                ),
-                new Expanded(child: Container()),
-                new FlatButton(
-                    onPressed: () {},
-                    textColor: Colors.white,
-                    child: Text('Grocery')
-                ),
-                new Expanded(child: Container()),
-                new FlatButton(
-                    onPressed: () {},
-                    textColor: Colors.white,
-                    child: Text('Mobile')
-                ),
-                new Expanded(child: Container()),
-                new FlatButton(
-                    onPressed: () {},
-                    textColor: Colors.white,
-                    child: Text('Fashion')
-                ),
-                new Expanded(child: Container()),
-              ],
-            ),
-          ),
-          new Container(
-            color: Color.fromRGBO(55,71,90, 1),
-            width: double.infinity,
-            height: 50,
-            child: new Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: new Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 4.0),
-                  child: new Text('Deliver to Sehajbir - Patiala 147004', style: TextStyle(fontSize: 12.0, color: Colors.white),),
-                ),
-                new IconButton(
-                    icon: Icon(Icons.arrow_drop_down),
-                    color: Colors.white,
-                    onPressed: () {},
-                ),
-              ],
-            ),
-          ),
-          CarouselSlider(
-            height: 200.0,
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            items: [1,2,3,4,5].map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                          color: Colors.cyan
-                      ),
-                      child: Text('text $i', style: TextStyle(fontSize: 16.0),)
-                  );
-                },
-              );
-            }).toList(),
-          )
-        ],
+            new FeatureBar(),
+            new TopBrandsSection()
+          ],
+        ),
       ),
       );
   }
 
 }
+
+
+
+

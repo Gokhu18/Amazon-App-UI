@@ -26,6 +26,8 @@ dependencies:
 
   carousel_slider: ^1.3.0
 
+  carousel_pro: ^1.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -48,6 +50,13 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
     - assets/amazon.png
+    - assets/Ad1.jpg
+    - assets/Ad2.jpg
+    - assets/Ad3.jpg
+    - assets/Ad4.jpg
+    - assets/Ad5.jpg
+    - assets/Ad.jpg
+    - assets/bhim.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
